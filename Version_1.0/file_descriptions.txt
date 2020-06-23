@@ -1,0 +1,2 @@
+Scripts and programs used in the first run of the indel calling pipeline. 
+These programs were abandoned after I realized that the indels called were very biased towards calling deletions, and the numbers of indels called in PH207 seemed biased. 
