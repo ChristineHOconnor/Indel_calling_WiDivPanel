@@ -2,12 +2,12 @@
 
 This repository contains scripts used to call small insertions and deletions Scripts used in version 1.0 as well as the final version are included
 
-Two indel callers, freebayes and platypus, were used in the final version. Options used for each software can be found in the example scripts in the Final_analysis folder. For both programs, indels were called jointly. Due to how resource intensive indel calling on 509 genotypes at one time is, the genome was chopped in parts (2-4/chromosome) and run seperately. GATK CatVariants (v 3.8) was used to combine individual chromosome fragment vcf files into one vcf. 
+Two indel callers, freebayes and platypus, were used in the final version. Options used for each software can be found in the example scripts in the Final_analysis folder. For both programs, indels were called jointly. Due to how resource intensive indel calling over 500 genotypes at one time is, the genome was chopped in parts (2-4/chromosome) and run seperately. GATK CatVariants (v 3.8) was used to combine individual chromosome fragment vcf files into one vcf. 
 
-Indels were filtered for minimum lenght of 2 bp. 
+Indels were filtered for minimum lenght of 2 bp and for GATK indel quality parameters (described here: https://gatkforums.broadinstitute.org/gatk/discussion/2806/howto-apply-hard-filters-to-a-call-set). 
 Variants called between platypus and freebayes were combined as described here: https://gatkforums.broadinstitute.org/gatk/discussion/53/combining-variants-from-different-files-into-one
-java -Xmx4g -jar GenomeAnalysisTK.jar -T CombineVariants -h
 
+Indel calling scripts can be found in the Final_analysis folder. 'run_freebayes_chr1_a_WiDiv512.sh' has an example of the freebayes command that was run on all samples and 'run_platypus_B73v4_chr1_a.sh' has an example of the platypus command that was run on all samples. Raw indel vcfs for each chromosome were processed using commands found in these files: 'filter_freebayesoutput.sh', 'process_platypus_vcf.sh' and 'filter_indels_fb.and.platypus.sh'. 
 
 SNP calls were also generated from freebayes. 
 SNP calls were filtered according to GATK recommendations, for a minimum allele count and for a maximum of 10% missing data at a site. 
