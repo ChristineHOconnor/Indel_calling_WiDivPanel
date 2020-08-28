@@ -19,7 +19,8 @@ gatk VariantFiltration -V /home/hirschc1/oconnorc/maize_refs/B73_chr1-10.fasta -
 ```
 
 Software used: 
-GATK v3.8
+GATK v3.8 (indel filtering)
+SNPs were filtered using GATK 4.1.2
 freebayes v1.3.1-17-gaa2ace8
 platypus https://github.com/andyrimmer/Platypus
 vcftools v0.1.13
